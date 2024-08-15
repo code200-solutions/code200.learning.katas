@@ -57,6 +57,12 @@ Code that calculates score of any bowling game. Based on https://www.wikihow.com
 
 We use `yarn` which is a simple is a package manager. To install it visit https://classic.yarnpkg.com/lang/en/docs/install
 
+### Prerequisites
+
+Have [node](https://nodejs.org/en/download/package-manager), [typescript](https://www.typescriptlang.org/download/), [yarn](https://classic.yarnpkg.com/en/docs/install) installed on your computer.
+
+Yarn is a package manager such as npm which we will use for now.
+
 ### Getting started
 
 1. Run `yarn install`
