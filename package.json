@@ -1,0 +1,35 @@
+{
+  "name": "katas",
+  "main": "./src/bowling/__tests__/test.ts",
+  "version": "0.1.0",
+  "scripts": {
+    "bowling": "ts-node --transpile-only ./src/bowling/__tests__/test.ts",
+    "test": "ts-node --transpile-only ./src/bowling/__tests__/test.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-prettier": "latest",
+    "prettier": "3.2.5",
+    "typescript": "latest"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "./tooling/eslint/base"
+    ],
+    "ignorePatterns": [
+      "node_modules/",
+      "dist/"
+    ]
+  },
+  "prettier": "./tooling/prettier/.prettierrc.json",
+  "private": true,
+  "homepage": "https://github.com/AtChurchill/Bowling_score"
+}
