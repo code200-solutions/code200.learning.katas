@@ -49,7 +49,7 @@ game
     let i= lastFrame ? 3 : strike || spare ? 2 : 1;    
 
     for (let n = scoreData.length; n > i; n -= num) {
-      console.log(scoreData);
+      //console.log(scoreData);
       let othershot = strike == false && spare == false && openFrame == true   
       ? 0
       : scoreData[2];
@@ -58,8 +58,8 @@ game
 
       scoreData.splice(0, num);
       totalScore += currentScore;
-      console.log(`Frame ${index} score:${currentScore}`);
-      console.log(`Total score:${totalScore}`);
+      //console.log(`Frame ${index} score:${currentScore}`);
+      //console.log(`Total score:${totalScore}`);
       index++;
     }
   }
