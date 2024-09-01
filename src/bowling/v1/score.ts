@@ -5,7 +5,11 @@ export function score(game: Game) {
     (score: number, frame: Frame, i, allFrames) =>
       score +
       sum(frame) +
-      (isSpare(frame) ? spareBonus(frame, i, allFrames) : 0),
+      (isSpare(frame)
+        ? spareBonus(frame, i, allFrames)
+        : isStrike(frame)
+          ? strikeBonus(frame, i, allFrames)
+          : 0),
     0,
   );
 }
@@ -24,4 +28,18 @@ function spareBonus(frame: Frame, frameIndex: number, game: Game): number {
 
   const nextFrame = game[frameIndex + 1]; // if frameIndex is the last frame, nextFrame will be undefined
   return nextFrame?.[0] ?? 0;
+}
+
+function isStrike(frame: Frame): boolean {
+  return frame?.[0] === 10;
+}
+
+function strikeBonus(frame: Frame, frameIndex: number, game: Game): number {
+  if (game == undefined) return 0;
+  if (!isStrike(frame)) return 0;
+
+  const nextFrame = game[frameIndex + 1];
+  const afterNextFrame = game[frameIndex + 2];
+
+  return sum(nextFrame) + (isStrike(nextFrame) ? afterNextFrame?.[0] ?? 0 : 0);
 }
