@@ -5,11 +5,7 @@ export function score(game: Game) {
     (score: number, frame: Frame, i, allFrames) =>
       score +
       sum(frame) +
-      (isSpare(frame)
-        ? spareBonus(frame, i, allFrames)
-        : isStrike(frame)
-          ? strikeBonus(frame, i, allFrames)
-          : 0),
+      (isSpare(frame) || isStrike(frame) ? bonus(frame, i, allFrames) : 0),
     0,
   );
 }
@@ -22,24 +18,22 @@ function isSpare(frame: Frame): boolean {
   return sum(frame) === 10 && frame?.[0] !== 10;
 }
 
-function spareBonus(frame: Frame, frameIndex: number, game: Game): number {
-  if (game == undefined) return 0; // undefined or null
-  if (!isSpare(frame)) return 0;
-
-  const nextFrame = game[frameIndex + 1]; // if frameIndex is the last frame, nextFrame will be undefined
-  return nextFrame?.[0] ?? 0;
-}
-
 function isStrike(frame: Frame): boolean {
   return frame?.[0] === 10;
 }
 
-function strikeBonus(frame: Frame, frameIndex: number, game: Game): number {
-  if (game == undefined) return 0;
-  if (!isStrike(frame)) return 0;
+function islastFrame (frame: Frame): boolean {
+  return frame?.length === 3;
+}
+
+function bonus(frame: Frame, frameIndex: number, game: Game): number {
+  if (game == undefined) return 0; // undefined or null
+  if (!isStrike(frame) && !isSpare(frame)) return 0;
 
   const nextFrame = game[frameIndex + 1];
   const afterNextFrame = game[frameIndex + 2];
 
+  if (isSpare(frame)) return nextFrame?.[0] ?? 0;
+  if (islastFrame(nextFrame)) return nextFrame[0] + nextFrame[1];
   return sum(nextFrame) + (isStrike(nextFrame) ? afterNextFrame?.[0] ?? 0 : 0);
 }
