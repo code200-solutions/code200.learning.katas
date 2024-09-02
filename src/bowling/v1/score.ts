@@ -1,6 +1,14 @@
 import { Frame, Game } from '../types/game.type';
 
 export function score(game: Game) {
+ 
+  for(const frame of game) {
+  const frameScore = sum(frame);
+  if (frame.length !==3 && frameScore>10) {
+    return -1
+  }
+ }
+
   return game.reduce(
     (score: number, frame: Frame, i, allFrames) =>
       score +
