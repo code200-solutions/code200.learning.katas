@@ -5,12 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Exercice 6",
+      "name": "Kata",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["./src/exercice6"],
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["test", "v1", "strike"],
       "env": {}
     }
   ]
