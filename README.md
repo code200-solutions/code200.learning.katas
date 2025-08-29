@@ -2,11 +2,11 @@
 
 ## Exercice 1
 
-A command that displays “Hello Gaia”
+A command that displays “Hello World”
 
 ## Exercice 2
 
-A FUNCTION that when called displays “Hello Gaia” (your code should contain both the function and your calling of it)
+A FUNCTION that when called displays “Hello World” (your code should contain both the function and your calling of it)
 
 ## Exercice 3
 
@@ -39,7 +39,7 @@ Your function should work with array of any size
 
 ## Exercice 7 First steps into error handling
 
-Using the same ⁠ sum() ⁠ function a#s exercice 6, add the below calls and find a way to make your code return -1
+Using the same ⁠ sum() ⁠ function as exercice 6, add the below calls and find a way to make your code return -1
 
 ⁠ sum(null) ⁠ => should return -1
 ⁠ sum(undefined) ⁠ => should return -1
